@@ -44,7 +44,7 @@ addBtn.addEventListener("click", () => {
 });
 
 taskContent.addEventListener("click", (e) => {
-    let taskText = e.target.parentNode.childNodes[0] // parentNode取得父元素
+    const taskText = e.target.parentNode.childNodes[0] // parentNode取得父元素
     switch (e.target.className) {
         case iconKey(iconArray[0]):
             e.target.classList.replace(`fa-${iconArray[0]}`, `fa-${iconArray[1]}`)
