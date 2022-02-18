@@ -34,6 +34,25 @@ body {
     background:
         linear-gradient(45deg, #1B9CFC 30%, #3B3B98 100%)
         center center / 100% 100%;
+    overflow: hidden;
+    // position: relative;
+    .tabs {
+        position: absolute;
+        bottom: 2rem;
+        right: 1rem;
+        background-color: #e6b54d;
+        color: #d83939;
+        font-size: 1.5rem;
+        font-weight: 500;
+        padding: 2rem;
+        border-radius: 1rem;
+        transform: translateX(120%);
+        transition: transform .5s ease-in-out;
+        &.tabsActive {
+            transform: translateX(0);
+        }
+
+    }
     .todoApp {
         margin: 0 auto;
         .tasksInput {
@@ -61,13 +80,6 @@ body {
                     color: rgba(170, 170, 170, 0.5);
                     font-size: 2rem;
                 }
-            }
-            .errorTxt {
-                display: block;
-                margin: 1rem auto 2rem;
-                color: red;
-                font-size: 1rem;
-                font-weight: 400;
             }
             #btn {
                 display: block;
@@ -102,11 +114,13 @@ body {
                 height: 20px;
                 font-size: 1.5rem;
                 margin: 0 -1rem 0 0;
+                cursor: default;
                 &.delText {
+                    color: #aaa;
                     text-decoration-line: line-through;
-                    text-decoration-color: #6e6e6e;
+                    text-decoration-color: #aaa;
                     text-decoration-style: double;
-                    text-decoration-thickness: 3px;
+                    text-decoration-thickness: 2px;
                 }
             }
             .fas {

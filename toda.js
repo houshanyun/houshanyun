@@ -2,36 +2,39 @@ const inputTask = document.getElementById("input");
 const addBtn = document.getElementById("btn");
 const taskContent = document.querySelector(".tasksContent");
 
+
 const iconArray = ["square", "check-square", "pen", "trash-alt"]
 
 function makeIcon(iconName) {
     const icon = document.createElement("i");
-    icon.classList.add("fas", `fa-${iconName}`)
+    icon.classList.add("fas", `fa-${iconName}`);
     return icon;
 }
 function iconKey(iconName) {
-    return `fas fa-${iconName}`
+    return `fas fa-${iconName}`;
 }
-console.log(makeIcon(iconArray[2]))
-const inputText = () => {
-    const input = document.createElement("input")
-    const att = document.createAttribute("readonly")
-    input.setAttribute("type", "text")
-    input.setAttributeNode(att)
-    input.value = inputTask.value
+function inputText() {
+    const input = document.createElement("input");
+    const att = document.createAttribute("readonly");
+    input.setAttribute("type", "text");
+    input.setAttributeNode(att);
+    input.value = inputTask.value;
     return input;
-};
+}
+
+function toTabs(txt) {
+    const tabs = document.querySelector(".tabs");
+    tabs.innerHTML = txt;
+    tabs.classList.add("tabsActive");
+    setTimeout(() => {
+        tabs.classList.remove("tabsActive")
+    }, 3000);
+}
 
 addBtn.addEventListener("click", () => {
     const newTask = document.createElement("div")
     if (inputTask.value === "") {
-        console.log("love")
-        const errorTxt = document.querySelector(".errorTxt")
-        errorTxt.innerHTML = "你沒有輸入任何內容喔!!!"
-        const delError = () => {
-            errorTxt.innerHTML = ""
-        };
-        setTimeout(delError, 2000);
+        toTabs("你沒有輸入任何內容喔!!!");
     } else {
         newTask.classList.add("task")
         newTask.appendChild(inputText())
@@ -55,7 +58,9 @@ taskContent.addEventListener("click", (e) => {
             taskText.classList.toggle("delText")
             break;
         case iconKey(iconArray[2]):
-            if (taskText.hasAttribute("readonly")) {
+            if (taskText.getAttribute("class") === "delText") {
+                toTabs("已完成的任務不能修改。");
+            } else{
                 taskText.removeAttribute("readonly")
                 taskText.focus()
             }
