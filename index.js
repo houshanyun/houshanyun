@@ -28,7 +28,7 @@ function toTabs(txt) {
     tabs.classList.add("tabsActive");
     setTimeout(() => {
         tabs.classList.remove("tabsActive")
-    }, 3000);
+    }, 2000);
 }
 
 addBtn.addEventListener("click", () => {
