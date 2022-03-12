@@ -50,8 +50,8 @@ body .tabs {
   font-weight: 500;
   padding: 2rem;
   border-radius: 1rem;
-  -webkit-transform: translateX(120%);
-          transform: translateX(120%);
+  -webkit-transform: translateX(125%);
+          transform: translateX(125%);
   -webkit-transition: -webkit-transform .5s ease-in-out;
   transition: -webkit-transform .5s ease-in-out;
   transition: transform .5s ease-in-out;
@@ -65,6 +65,18 @@ body .tabs.tabsActive {
 
 body .todoApp {
   margin: 0 auto;
+  position: absolute;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
+}
+
+body .todoApp.active {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
 body .todoApp .tasksInput {
@@ -139,11 +151,11 @@ body .todoApp .tasksContent input {
 }
 
 body .todoApp .tasksContent input.delText {
-  color: #aaa;
+  color: #ccc;
   -webkit-text-decoration-line: line-through;
           text-decoration-line: line-through;
-  -webkit-text-decoration-color: #aaa;
-          text-decoration-color: #aaa;
+  -webkit-text-decoration-color: #7c7c7c;
+          text-decoration-color: #7c7c7c;
   -webkit-text-decoration-style: double;
           text-decoration-style: double;
   text-decoration-thickness: 2px;

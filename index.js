@@ -5,6 +5,13 @@ const taskContent = document.querySelector(".tasksContent");
 
 const iconArray = ["square", "check-square", "pen", "trash-alt"]
 
+window.addEventListener("load", () => {
+    const todoApp = document.querySelector(".todoApp");
+    setTimeout(() => {
+        todoApp.classList.toggle("active");
+    }, 1000)
+}, {once: true}) // once代表監聽只會觸發一次，結束後自動解除監聽。
+
 function makeIcon(iconName) {
     const icon = document.createElement("i");
     icon.classList.add("fas", `fa-${iconName}`);
